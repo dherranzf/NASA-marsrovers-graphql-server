@@ -1,4 +1,4 @@
-# nasa-mars-rovers-graphql-server
+# NASA-mars-rovers-graphql-server
 
 ## How to use this repo
 
@@ -9,5 +9,3 @@ To get started:
 1. Run `npm start`.
 
 This will start the GraphQL API server.
-
- 
