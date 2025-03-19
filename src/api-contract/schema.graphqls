@@ -1,0 +1,51 @@
+type Query {
+  "Query to get mars photos array for the homepage grid"
+  marsPhotos: [MarsPhoto!]!
+  "Fetch a specific marsPhoto, provided a marsPhoto's ID"
+  marsPhoto(id: ID!): MarsPhoto!
+  "Fetch a specific rover, provided a rovers's ID"
+  rover(id: ID!): Rover!
+}
+
+type Mutation {
+  incrementMarsPhotoViews(id: ID!): IncrementMarsPhotoViewsResponse!
+}
+
+type IncrementMarsPhotoViewsResponse {
+  "Similar to HTTP status code, represents the status of the mutation"
+  code: Int!
+  "Indicates whether the mutation was successful"
+  success: Boolean!
+  "Human-readable message for the UI"
+  message: String!
+  "Newly updated marsPhoto after a successful mutation"
+  marsPhoto: MarsPhoto
+}
+
+"A MarsPhoto is photo of Mars taked for a rover"
+type MarsPhoto {
+  id: ID!
+  sol: String!
+  camera: Camera!
+  img_src: String
+  earth_date: Int
+  number_of_views: Int
+  rover: Rover!
+}
+
+"A Rover"
+type Rover {
+  id: ID!
+  name: String
+  landing_date: String
+  launch_date: String
+  status: String
+}
+
+"A Camera"
+type Camera {
+  id: ID!
+  name: String
+  rover_id: Int
+  full_name: String
+}
