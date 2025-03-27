@@ -1,8 +1,8 @@
 import { RESTDataSource, AugmentedRequest } from "@apollo/datasource-rest";
-import { MarsPhotoModel } from "../models";
+import { MarsPhoto } from "../models";
 
 export class NasaMarsAPI extends RESTDataSource {
-  // the API NASA Mars Rover Photos is here
+  // The API NASA Mars Rover Photos is here
   baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos";
 
   // Add the API key to all requests automatically and log the request
@@ -12,28 +12,36 @@ export class NasaMarsAPI extends RESTDataSource {
     }
     requestOpts.params.set("api_key", process.env.NASA_API_KEY!); // Automatically include the API key
 
+    // Add earth_date
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const earthDate = yesterday.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+    requestOpts.params.set("earth_date", earthDate);
+
     // Log the request details for debugging
     console.log("Request Path:", path);
     console.log("Request Params:", requestOpts.params.toString());
   }
 
   // Fetch all Mars photos with optional pagination
-  async getMarsPhotos(page: number = 1): Promise<MarsPhotoModel[]> {
-    return await this.get<MarsPhotoModel[]>("photos", {
+  async getMarsPhotos(page: number = 1): Promise<MarsPhoto[]> {
+    const response = await this.get<{ photos: MarsPhoto[] }>("photos", {
       params: {
-        page: page.toString(), // Only include the page parameter here
+        page: page.toString(),
       },
     });
+    console.log("Response:", response);
+    return response.photos;
   }
 
-  // Fetch a specific Mars photo by ID with optional pagination
-  async getMarsPhoto(photoId: string, page: number = 1): Promise<MarsPhotoModel | undefined> {
-    const photos = await this.get<MarsPhotoModel[]>("photos");
+  // Fetch a specific Mars photo by ID
+  async getMarsPhoto(photoId: string, page: number = 1): Promise<MarsPhoto | undefined> {
+    const photos = await this.get<MarsPhoto[]>("photos");
     return photos.find(photo => photo.id === photoId);
   }
 
   // Increment the number of views for a specific Mars photo
-  async incrementMarsPhotoViews(photoId: string): Promise<MarsPhotoModel> {
-    return await this.patch<MarsPhotoModel>(`photos/${photoId}/numberOfViews`);
+  async incrementMarsPhotoViews(photoId: string): Promise<MarsPhoto> {
+    return await this.patch<MarsPhoto>(`photos/${photoId}/numberOfViews`);
   }
 }

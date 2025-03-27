@@ -1,4 +1,4 @@
-export type MarsPhotoModel = {
+export type MarsPhoto = {
   id: string;
   sol: string;
   camera: Camera;

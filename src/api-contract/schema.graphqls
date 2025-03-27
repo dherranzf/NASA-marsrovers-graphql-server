@@ -17,7 +17,7 @@ type MarsPhoto {
   sol: String!
   camera: Camera!
   img_src: String
-  earth_date: Int
+  earth_date: String
   number_of_views: Int
   rover: Rover!
 }

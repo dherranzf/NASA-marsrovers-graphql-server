@@ -3,13 +3,13 @@ import { Resolvers } from "./types";
 export const resolvers: Resolvers = {
   Query: {
     // returns an array of MarsPhoto that will be used to populate the homepage grid of our clients
-    marsPhotos: (_, __, { dataSources }) => {
-      return dataSources.marsAPI.getMarsPhotos();
+    marsPhotos: async (_, __, { dataSources }) => {
+      return await dataSources.marsAPI.getMarsPhotos();
     },
 
     // get a single photo by ID, for the track page
-    marsPhoto: (_, { id }, { dataSources }) => {
-      return dataSources.marsAPI.getMarsPhoto(id);
+    marsPhoto: async (_, { id }, { dataSources }) => {
+      return await dataSources.marsAPI.getMarsPhoto(id);
     }
   },
   Mutation: {
