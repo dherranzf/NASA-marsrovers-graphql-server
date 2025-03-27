@@ -1,11 +1,32 @@
-# NASA-mars-rovers-graphql-server
+# 🪐🔭 NASA Mars Rovers GraphQL Server
 
-## How to use this repo
+A GraphQL API server that provides data about NASA's Mars Rovers.
 
-To get started:
+## 📖 How to Use This Repo
 
-1. Navigate to the `server` folder.
-1. Run `npm install`.
-1. Run `npm start`.
+Follow these steps to set up and run the server:
 
-This will start the GraphQL API server.
+### 🛠 Setup
+1. Navigate to the `server` folder:
+   ```sh
+   cd server
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+### 🚀 Running the Server
+#### Development Mode:
+Run the server in development mode with live reloading:
+   ```sh
+   npm run dev
+   ```
+
+#### Production Mode:
+Start the server in production mode:
+   ```sh
+   npm start
+   ```
+
+This will launch the GraphQL API server, ready to handle requests. 🪐
