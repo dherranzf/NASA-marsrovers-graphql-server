@@ -14,7 +14,7 @@ export class NasaMarsAPI extends RESTDataSource {
 
     // Add earth_date
     const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
+    yesterday.setDate(yesterday.getDate() - 2);
     const earthDate = yesterday.toISOString().split("T")[0]; // Format as YYYY-MM-DD
     requestOpts.params.set("earth_date", earthDate);
 
@@ -35,9 +35,13 @@ export class NasaMarsAPI extends RESTDataSource {
   }
 
   // Fetch a specific Mars photo by ID
-  async getMarsPhoto(photoId: string, page: number = 1): Promise<MarsPhoto | undefined> {
-    const photos = await this.get<MarsPhoto[]>("photos");
-    return photos.find(photo => photo.id === photoId);
+  async getMarsPhoto(photoId: string): Promise<MarsPhoto | undefined> {
+    console.log("Request photoId:", photoId);
+    const response = await this.get<{ photos: MarsPhoto[] }>("photos");
+    console.log("Response:", response);
+    const photo = response.photos.find(photo => photo.id.toString() === photoId);
+    console.log("Result photo:", photo);
+    return photo;
   }
 
   // Increment the number of views for a specific Mars photo
