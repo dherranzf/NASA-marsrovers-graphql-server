@@ -1,5 +1,5 @@
 import { RESTDataSource, AugmentedRequest } from "@apollo/datasource-rest";
-import { MarsPhoto } from "../models";
+import { MarsPhoto } from "../models/models";
 
 export class NasaMarsAPI extends RESTDataSource {
   // The API NASA Mars Rover Photos is here

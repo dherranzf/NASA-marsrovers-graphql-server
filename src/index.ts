@@ -1,10 +1,9 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema";
-import { resolvers } from "./resolvers";
+import { resolvers } from "./resolvers/resolvers";
 import { NasaMarsAPI } from "./datasources/nasa-mars-api";
 import 'dotenv/config'; // Carga automáticamente las variables de entorno desde el archivo .env
-
 
 async function startApolloServer() {
   require('dotenv').config();
