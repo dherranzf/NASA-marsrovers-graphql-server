@@ -19,7 +19,7 @@ export type Camera = {
 export type Rover = {
   id: string;
   name: string;
-  landing_date: number;
-  launch_date: number;
-  status: number;
+  landing_date: string; 
+  launch_date: string; 
+  status: string;      
 }
