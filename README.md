@@ -6,11 +6,11 @@ Explore the wonders of Mars with this GraphQL server! 🔭
 
 ## 📑 Table of Contents
 - [🧑‍💻  Features](#-features)
-- [🛠️ Technology Stack](#️-technology-stack)
+- [🎨 Technology Stack](#️-technology-stack)
 - [🗂️ Project Structure](#-project-structure)
 - [📖 How to Use This Repo](#-how-to-use-this-repo)
 - [🔍 Example Queries](#-example-queries)
-- [🚀 Future Improvements](#-future-improvements)
+- [🔮 Future Improvements](#-future-improvements)
 - [📜 License](#-license)
 
 ## 🧑‍💻 Features
@@ -116,10 +116,34 @@ query GetMarsPhotos {
 }
 ```
 
-### Fetch a Specific Mars Photo by ID
+### Fetch Mars Photos Filtered by Sol or Earth Date
 ```graphql
-query GetMarsPhoto($id: ID!) {
-  marsPhoto(id: $id) {
+query GetFilteredMarsPhotos($sol: String, $earth_date: String) {
+  marsPhotos(sol: $sol, earth_date: $earth_date) {
+    id
+    sol
+    img_src
+    earth_date
+    rover {
+      name
+      status
+    }
+  }
+}
+```
+
+#### Example Variables
+```json
+{
+  "sol": "1000",
+  "earth_date": "2023-09-01"
+}
+```
+
+### Fetch a Specific Mars Photo by ID and Sol
+```graphql
+query GetMarsPhoto($id: ID!, $sol: String) {
+  marsPhoto(id: $id, sol: $sol) {
     id
     sol
     img_src
@@ -137,6 +161,16 @@ query GetMarsPhoto($id: ID!) {
 }
 ```
 
+#### Example Variables
+```json
+{
+  "id": "m_1",
+  "sol": "1000"
+}
+```
+
+This query allows you to fetch a specific Mars photo by its ID and optionally filter it by the Martian sol.
+
 ### Increment the View Count of a Mars Photo
 ```graphql
 mutation IncrementMarsPhotoViews($id: ID!) {
@@ -151,6 +185,8 @@ mutation IncrementMarsPhotoViews($id: ID!) {
   }
 }
 ```
+
+This query allows you to filter Mars photos by either the Martian sol or the Earth date. You can provide one or both filters as needed.
 
 ## 🔮 Future Improvements
 - Expand the API to include data from other NASA missions.
