@@ -1,8 +1,8 @@
 type Query {
   "Query to get mars photos array for the homepage grid"
-  marsPhotos: [MarsPhoto!]!
+  marsPhotos(sol: String, earth_date: String): [MarsPhoto!]!
   "Fetch a specific marsPhoto, provided a marsPhoto's ID"
-  marsPhoto(id: ID!): MarsPhoto!
+  marsPhoto(id: ID!, sol: String): MarsPhoto!
   "Fetch a specific rover, provided a rovers's ID"
   rover(id: ID!): Rover!
 }
