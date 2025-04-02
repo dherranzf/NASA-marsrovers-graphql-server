@@ -1,0 +1,22 @@
+query ExampleQuery {
+  marsPhotos {
+    id
+    sol
+    camera {
+      id
+      name
+      rover_id
+      full_name
+    }
+    img_src
+    earth_date
+    number_of_views
+    rover {
+      id
+      name
+      landing_date
+      launch_date
+      status
+    }
+  }
+}
