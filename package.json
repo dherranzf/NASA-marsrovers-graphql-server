@@ -9,7 +9,8 @@
     "dev": "ts-node-dev --respawn ./src/index.ts",
     "start": "npm run compile && nodemon ./dist/index.js",
     "generate": "graphql-codegen",
-    "postbuild": "mkdir -p dist/api-contract && cp src/api-contract/schema.graphqls dist/api-contract/schema.graphqls"
+    "postbuild": "mkdir -p dist/api-contract && cp src/api-contract/schema.graphqls dist/api-contract/schema.graphqls",
+    "build": "npm run compile && npm run postbuild"
   },
   "dependencies": {
     "@apollo/datasource-rest": "^5.0.2",
