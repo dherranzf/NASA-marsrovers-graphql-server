@@ -5,12 +5,11 @@
   "main": "src/index.js",
   "scripts": {
     "postinstall": "npm run generate",
-    "compile": "tsc",
-    "dev": "ts-node-dev --respawn ./src/index.ts",
-    "start": "npm run compile && nodemon ./dist/index.js",
     "generate": "graphql-codegen",
+    "start": "npm run compile && npm run postbuild && nodemon ./dist/index.js",
+    "compile": "tsc",
     "postbuild": "mkdir -p dist/api-contract && cp src/api-contract/schema.graphqls dist/api-contract/schema.graphqls",
-    "build": "npm run compile && npm run postbuild"
+    "dev": "ts-node-dev --respawn ./src/index.ts"
   },
   "dependencies": {
     "@apollo/datasource-rest": "^5.0.2",
