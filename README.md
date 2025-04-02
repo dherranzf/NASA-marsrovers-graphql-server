@@ -14,7 +14,7 @@ Explore the wonders of Mars with this GraphQL server! 🔭
 - [📜 License](#-license)
 
 ## 🧑‍💻 Features
-- Fetch a list of Mars Rover photos.
+- Fetch a list of Mars Rover photos and Filter photos by Martian Sol or Earth Date.
 - Retrieve detailed information about a specific photo.
 - Increment the view count for a photo.
 - Query data efficiently using GraphQL.
@@ -188,10 +188,15 @@ mutation IncrementMarsPhotoViews($id: ID!) {
 
 This query allows you to filter Mars photos by either the Martian sol or the Earth date. You can provide one or both filters as needed.
 
+
+### Examples Sandbox UI GraphQL Server
+![Example Sandbox UI GraphQL Server 1](./docs/ExampleSandboxUIGraphQLServer1.png)
+![Example Sandbox UI GraphQL Server 2](./docs/ExampleSandboxUIGraphQLServer2.png)
+
 ## 🔮 Future Improvements
 - Expand the API to include data from other NASA missions.
 - Use a dedicated database (e.g., MongoDB) to store application-specific data.
-- Add support for filtering photos by camera type or date range.
+- Add more filtering and sorting options for photos.
 - Implement user authentication for personalized features.
 
 ## 📜 License
