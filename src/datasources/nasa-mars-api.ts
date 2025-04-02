@@ -32,6 +32,7 @@ export class NasaMarsAPI extends RESTDataSource {
       params,
       cacheOptions: { ttl: 60 }, // Cache for 60 seconds
     });
+    console.debug("Response:", response);
     return response.photos;
   }
 
