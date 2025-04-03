@@ -4,6 +4,8 @@ A GraphQL API server built with **TypeScript** and **Node.js**, designed to prov
 
 Explore the wonders of Mars with this GraphQL server! 🔭
 
+🌐 **LIVE SERVER**: https://nasa-marsrovers-graphql-server.onrender.com/
+
 ## 📑 Table of Contents
 - [🧑‍💻  Features](#-features)
 - [🎨 Technology Stack](#️-technology-stack)
