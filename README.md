@@ -1,3 +1,7 @@
+> ⚠️ **Important Notice:**  
+> The NASA Mars Photo API used by this project is no longer maintained.  
+> [https://github.com/corincerami/mars-photo-api](https://github.com/corincerami/mars-photo-api) - See section: "Archive Only - This API is retired"
+
 # 🪐🛰️ NASA Mars Rovers GraphQL Server
 
 A GraphQL API server built with **TypeScript** and **Node.js**, designed to provide data about NASA's Mars Rovers. This project leverages **GraphQL** for efficient data querying and follows modern software design practices for scalability and maintainability.
